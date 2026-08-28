@@ -165,12 +165,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
         {
             image: "photo1.jpg",
-            caption: "Dad and his Boys ❤️"
+            caption: "Dad and his Boys ❣️"
         },
 
         {
             image: "photo2.jpg",
-            caption: "Dad and his sexy first born❤️"
+            caption: "Dad and his sexy first born"
         },
 
         {
