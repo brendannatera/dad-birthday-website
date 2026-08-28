@@ -190,7 +190,21 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function startSlideshow(){
 
-        showSlide();
+    showSlide();
+
+    const slideshowTimer = setInterval(function(){
+
+        if(currentSlide < slides.length - 1){
+
+            nextButton.click();
+
+        } else {
+
+            clearInterval(slideshowTimer);
+
+        }
+
+    },5000);
 
     }
 
