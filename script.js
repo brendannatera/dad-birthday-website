@@ -421,3 +421,12 @@ psButton.addEventListener("click", function(){
     psButton.style.display = "none";
 
 });
+// ======================================
+// EXPERIENCE AGAIN
+// ======================================
+
+function restartWebsite(){
+
+    location.reload();
+
+}
