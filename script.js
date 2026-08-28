@@ -66,13 +66,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
         "Checking dad status...",
 
-        "Scanning for legendary dad jokes...",
+        "Listening to Missed your Chance...",
 
-        "Checking how many times he has said 'back in my day'...",
+        "I wonder if he is gonna buy me beer🤔...",
 
-        "Calculating dad wisdom...",
+        "Scanning Face...",
 
-        "ERROR: Too much dad energy detected.",
+        "ERROR: No Hair detected.",
 
         "Just kidding 😂",
 
