@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Dad 🎂</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ====================================== -->
+    <!-- PAGE 1 - VERIFICATION -->
+    <!-- ====================================== -->
+
+    <section id="page1">
+
+        <div class="card">
+
+            <h1>Birthday Message System</h1>
+
+            <h3>Version 1.0</h3>
+
+            <p>
+                Before proceeding, we need to verify your identity.
+            </p>
+
+            <h2>Are you William Natera?</h2>
+
+            <div class="buttons">
+
+                <button id="yesButton">
+                    Yes, that's me
+                </button>
+
+                <button id="noButton">
+                    No
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- LOADING SCREEN -->
+    <!-- ====================================== -->
+
+    <section id="loadingScreen">
+
+        <div class="loadingContainer">
+
+            <div class="spinner"></div>
+
+            <h2 id="loadingText">
+                Initializing...
+            </h2>
+
+            <p id="loadingSubtext"></p>
+
+            <div class="progressBar">
+
+                <div id="progress"></div>
+
+            </div>
+
+            <p id="progressPercent">0%</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- LOVE DAD SCREEN -->
+    <!-- ====================================== -->
+
+    <section id="dadScreen">
+
+        <h1>
+            We love you, Dad. 🫶🏾
+        </h1>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- PHOTO SLIDESHOW -->
+    <!-- ====================================== -->
+
+    <section id="slideshowScreen">
+
+        <div class="slideshowContainer">
+
+            <img id="slideImage"
+                 src=""
+                 alt="Family memory">
+
+            <p id="slideCaption"></p>
+
+            <div class="slideButtons">
+
+                <button id="previousButton">
+                    ← Previous
+                </button>
+
+                <button id="nextButton">
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- BIRTHDAY MESSAGE -->
+    <!-- ====================================== -->
+
+    <section id="birthdayPage">
+
+        <div class="card">
+
+            <h1 id="birthdayTitle"></h1>
+
+            <p id="birthdayMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
