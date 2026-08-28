@@ -179,14 +179,34 @@ function startSlideshow(){
 
 function showSlide(){
 
-    document.getElementById("slideImage")
-    .src =
-    slides[currentSlide].image;
+    const image =
+    document.getElementById("slideImage");
+
+    const caption =
+    document.getElementById("slideCaption");
 
 
-    document.getElementById("slideCaption")
-    .textContent =
-    slides[currentSlide].caption;
+    // Fade out
+
+    image.style.opacity = "0";
+
+
+    setTimeout(function(){
+
+        // Change picture
+
+        image.src =
+        slides[currentSlide].image;
+
+        caption.textContent =
+        slides[currentSlide].caption;
+
+
+        // Fade back in
+
+        image.style.opacity = "1";
+
+    },800);
 
 }
 
