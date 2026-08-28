@@ -1,724 +1,386 @@
 // ======================================
-// PAGE ELEMENTS
+// WAIT FOR PAGE TO LOAD
 // ======================================
 
-const page1 =
-document.getElementById("page1");
+document.addEventListener("DOMContentLoaded", function(){
 
-const loadingScreen =
-document.getElementById("loadingScreen");
+    // ======================================
+    // PAGE ELEMENTS
+    // ======================================
 
-const dadScreen =
-document.getElementById("dadScreen");
+    const page1 =
+    document.getElementById("page1");
 
-const slideshowScreen =
-document.getElementById("slideshowScreen");
+    const loadingScreen =
+    document.getElementById("loadingScreen");
 
-const birthdayPage =
-document.getElementById("birthdayPage");
+    const dadScreen =
+    document.getElementById("dadScreen");
 
-const yesButton =
-document.getElementById("yesButton");
+    const slideshowScreen =
+    document.getElementById("slideshowScreen");
 
-
-// ======================================
-// YES BUTTON
-// ======================================
-
-yesButton.addEventListener("click", function(){
-
-    page1.style.display = "none";
-
-    loadingScreen.style.display = "flex";
-
-    startLoading();
-
-});
+    const birthdayPage =
+    document.getElementById("birthdayPage");
 
 
-// ======================================
-// LOADING MESSAGES
-// ======================================
+    const yesButton =
+    document.getElementById("yesButton");
 
-const loadingMessages = [
+    const nextButton =
+    document.getElementById("nextButton");
 
-    "Initializing...",
+    const previousButton =
+    document.getElementById("previousButton");
 
-    "Connecting to Dad Database...",
-
-    "Searching for William Natera...",
-
-    "Checking dad status...",
-
-    "Scanning for legendary dad jokes...",
-
-    "Checking how many times he has said 'back in my day'...",
-
-    "Calculating dad wisdom...",
-
-    "ERROR: Too much dad energy detected.",
-
-    "Just kidding 😂",
-
-    "Birthday Dad verified. ✓",
-
-    "Loading memories..."
-
-];
+    const continueButton =
+    document.getElementById("continueButton");
 
 
-// ======================================
-// LOADING
-// ======================================
+    // ======================================
+    // YES BUTTON
+    // ======================================
 
-function startLoading(){
+    yesButton.addEventListener("click", function(){
 
-    let index = 0;
+        page1.style.display = "none";
 
-    let percent = 0;
+        loadingScreen.style.display = "flex";
 
-    const timer =
-    setInterval(function(){
+        startLoading();
 
-        document.getElementById("loadingText")
-        .textContent =
-        loadingMessages[index];
+    });
 
 
-        percent += 100 / loadingMessages.length;
+    // ======================================
+    // LOADING MESSAGES
+    // ======================================
 
-        if(percent > 100){
+    const loadingMessages = [
 
-            percent = 100;
+        "Initializing...",
 
-        }
+        "Connecting to Dad Database...",
+
+        "Searching for William Natera...",
+
+        "Checking dad status...",
+
+        "Scanning for legendary dad jokes...",
+
+        "Checking how many times he has said 'back in my day'...",
+
+        "Calculating dad wisdom...",
+
+        "ERROR: Too much dad energy detected.",
+
+        "Just kidding 😂",
+
+        "Birthday Dad verified. ✓",
+
+        "Loading memories..."
+
+    ];
 
 
-        document.getElementById("progress")
-        .style.width =
-        percent + "%";
+    // ======================================
+    // LOADING
+    // ======================================
+
+    function startLoading(){
+
+        let index = 0;
+
+        let percent = 0;
 
 
-        document.getElementById("progressPercent")
-        .textContent =
-        Math.floor(percent) + "%";
+        const timer =
+        setInterval(function(){
+
+            document.getElementById("loadingText")
+            .textContent =
+            loadingMessages[index];
 
 
-        index++;
+            percent += 100 / loadingMessages.length;
 
 
-        if(index >= loadingMessages.length){
+            if(percent > 100){
 
-            clearInterval(timer);
+                percent = 100;
+
+            }
 
 
-            setTimeout(function(){
+            document.getElementById("progress")
+            .style.width =
+            percent + "%";
 
-                loadingScreen.style.display = "none";
 
-                dadScreen.style.display = "flex";
+            document.getElementById("progressPercent")
+            .textContent =
+            Math.floor(percent) + "%";
+
+
+            index++;
+
+
+            if(index >= loadingMessages.length){
+
+                clearInterval(timer);
 
 
                 setTimeout(function(){
 
-                    dadScreen.style.display = "none";
+                    loadingScreen.style.display = "none";
 
-                    slideshowScreen.style.display = "flex";
-
-                    startSlideshow();
-
-                },3000);
+                    dadScreen.style.display = "flex";
 
 
-            },1000);
+                    setTimeout(function(){
+
+                        dadScreen.style.display = "none";
+
+                        slideshowScreen.style.display = "flex";
+
+                        startSlideshow();
+
+                    },3000);
+
+
+                },1000);
+
+            }
+
+        },1000);
+
+    }
+
+
+    // ======================================
+    // SLIDESHOW
+    // ======================================
+
+    const slides = [
+
+        {
+            image: "images/photo1.jpg",
+            caption: "A special memory ❤️"
+        },
+
+        {
+            image: "images/photo2.jpg",
+            caption: "Another special memory ❤️"
+        },
+
+        {
+            image: "images/photo3.jpg",
+            caption: "Another memory with Dad ❤️"
+        }
+
+    ];
+
+
+    let currentSlide = 0;
+
+
+    // ======================================
+    // START SLIDESHOW
+    // ======================================
+
+    function startSlideshow(){
+
+        showSlide();
+
+    }
+
+
+    // ======================================
+    // SHOW SLIDE
+    // ======================================
+
+    function showSlide(){
+
+        const image =
+        document.getElementById("slideImage");
+
+        const caption =
+        document.getElementById("slideCaption");
+
+
+        image.style.opacity = "0";
+
+
+        setTimeout(function(){
+
+            image.src =
+            slides[currentSlide].image;
+
+            caption.textContent =
+            slides[currentSlide].caption;
+
+            image.style.opacity = "1";
+
+        },800);
+
+    }
+
+
+    // ======================================
+    // NEXT BUTTON
+    // ======================================
+
+    nextButton.addEventListener("click", function(){
+
+        currentSlide++;
+
+
+        if(currentSlide >= slides.length){
+
+            currentSlide =
+            slides.length - 1;
+
+
+            nextButton.style.display =
+            "none";
+
+
+            continueButton.style.display =
+            "inline-block";
 
         }
 
-    },1000);
 
-}
+        showSlide();
 
+    });
 
-// ======================================
-// SLIDESHOW
-// ======================================
 
-const slides = [
+    // ======================================
+    // PREVIOUS BUTTON
+    // ======================================
 
-    {
-        image: "images/photo1.jpg",
-        caption: "A special memory ❤️"
-    },
+    previousButton.addEventListener("click", function(){
 
-    {
-        image: "images/photo2.jpg",
-        caption: "Another special memory ❤️"
-    },
+        currentSlide--;
 
-    {
-        image: "images/photo3.jpg",
-        caption: "Another memory with Dad ❤️"
-    }
 
-];
+        if(currentSlide < 0){
 
+            currentSlide =
+            slides.length - 1;
 
-let currentSlide = 0;
+        }
 
 
-// ======================================
-// START SLIDESHOW
-// ======================================
+        nextButton.style.display =
+        "inline-block";
 
-function startSlideshow(){
 
-    showSlide();
+        continueButton.style.display =
+        "none";
 
-}
 
+        showSlide();
 
-// ======================================
-// SHOW SLIDE
-// ======================================
+    });
 
-function showSlide(){
 
-    const image =
-    document.getElementById("slideImage");
+    // ======================================
+    // CONTINUE TO BIRTHDAY MESSAGE
+    // ======================================
 
-    const caption =
-    document.getElementById("slideCaption");
+    continueButton.addEventListener("click", function(){
 
+        slideshowScreen.style.display =
+        "none";
 
-    // Fade out
+        birthdayPage.style.display =
+        "flex";
 
-    image.style.opacity = "0";
+        startBirthdayMessage();
 
+    });
 
-    setTimeout(function(){
 
-        image.src =
-        slides[currentSlide].image;
+    // ======================================
+    // BIRTHDAY MESSAGE
+    // ======================================
 
-        caption.textContent =
-        slides[currentSlide].caption;
-
-
-        // Fade in
-
-        image.style.opacity = "1";
-
-    },800);
-
-}
-
-
-// ======================================
-// NEXT
-// ======================================
-
-document.getElementById("nextButton")
-.addEventListener("click", function(){
-
-    currentSlide++;
-
-
-    if(currentSlide >= slides.length){
-
-        currentSlide = slides.length - 1;
-
-        document.getElementById("nextButton")
-        .style.display = "none";
-
-        document.getElementById("continueButton")
-        .style.display = "inline-block";
-
-    }
-
-
-    showSlide();
-
-});
-
-
-// ======================================
-// PREVIOUS
-// ======================================
-
-document.getElementById("previousButton")
-.addEventListener("click", function(){
-
-    currentSlide--;
-
-
-    if(currentSlide < 0){
-
-        currentSlide = slides.length - 1;
-
-    }
-
-
-    showSlide();
-
-});
-
-
-// ======================================
-// CONTINUE TO BIRTHDAY MESSAGE
-// ======================================
-
-const continueButton =
-document.getElementById("continueButton");
-
-
-continueButton.addEventListener("click", function(){
-
-    slideshowScreen.style.display = "none";
-
-    birthdayPage.style.display = "flex";
-
-    startBirthdayMessage();
-
-});
-
-
-// ======================================
-// BIRTHDAY MESSAGE
-// ======================================
-
-const birthdayText =
+    const birthdayText =
 `YOUR BIRTHDAY MESSAGE WILL GO HERE.
 
 WE WILL WRITE THIS TOGETHER. ❤️`;
 
 
-function startBirthdayMessage(){
+    function startBirthdayMessage(){
 
-    const title =
-    document.getElementById("birthdayTitle");
+        const title =
+        document.getElementById("birthdayTitle");
 
-    const message =
-    document.getElementById("birthdayMessage");
+        const message =
+        document.getElementById("birthdayMessage");
 
 
-    title.textContent = "";
+        title.textContent = "";
 
-    message.textContent = "";
+        message.textContent = "";
 
 
-    const heading =
-    "Happy Birthday Dad! 🎂";
+        const heading =
+        "Happy Birthday Dad! 🎂";
 
-    let i = 0;
 
+        let i = 0;
 
-    const titleTimer =
-    setInterval(function(){
 
-        title.textContent +=
-        heading.charAt(i);
+        const titleTimer =
+        setInterval(function(){
 
-        i++;
+            title.textContent +=
+            heading.charAt(i);
 
+            i++;
 
-        if(i >= heading.length){
 
-            clearInterval(titleTimer);
+            if(i >= heading.length){
 
-            setTimeout(typeMessage,700);
+                clearInterval(titleTimer);
 
-        }
+                setTimeout(typeMessage,700);
 
-    },100);
+            }
 
-}
-
-
-function typeMessage(){
-
-    const message =
-    document.getElementById("birthdayMessage");
-
-    let i = 0;
-
-
-    const timer =
-    setInterval(function(){
-
-        message.textContent +=
-        birthdayText.charAt(i);
-
-        i++;
-
-
-        if(i >= birthdayText.length){
-
-            clearInterval(timer);
-
-        }
-
-    },25);
-
-               }// ======================================
-// PAGE ELEMENTS
-// ======================================
-
-const page1 =
-document.getElementById("page1");
-
-const loadingScreen =
-document.getElementById("loadingScreen");
-
-const dadScreen =
-document.getElementById("dadScreen");
-
-const slideshowScreen =
-document.getElementById("slideshowScreen");
-
-const birthdayPage =
-document.getElementById("birthdayPage");
-
-const yesButton =
-document.getElementById("yesButton");
-
-
-// ======================================
-// YES BUTTON
-// ======================================
-
-yesButton.addEventListener("click", function(){
-
-    page1.style.display = "none";
-
-    loadingScreen.style.display = "flex";
-
-    startLoading();
-
-});
-
-
-// ======================================
-// LOADING MESSAGES
-// ======================================
-
-const loadingMessages = [
-
-    "Initializing...",
-
-    "Connecting to Dad Database...",
-
-    "Searching for William Natera...",
-
-    "Checking dad status...",
-
-    "Scanning for legendary dad jokes...",
-
-    "Checking how many times he has said 'back in my day'...",
-
-    "Calculating dad wisdom...",
-
-    "ERROR: Too much dad energy detected.",
-
-    "Just kidding 😂",
-
-    "Birthday Dad verified. ✓",
-
-    "Loading memories..."
-
-];
-
-
-// ======================================
-// LOADING
-// ======================================
-
-function startLoading(){
-
-    let index = 0;
-
-    let percent = 0;
-
-    const timer =
-    setInterval(function(){
-
-        document.getElementById("loadingText")
-        .textContent =
-        loadingMessages[index];
-
-
-        percent += 100 / loadingMessages.length;
-
-        if(percent > 100){
-
-            percent = 100;
-
-        }
-
-
-        document.getElementById("progress")
-        .style.width =
-        percent + "%";
-
-
-        document.getElementById("progressPercent")
-        .textContent =
-        Math.floor(percent) + "%";
-
-
-        index++;
-
-
-        if(index >= loadingMessages.length){
-
-            clearInterval(timer);
-
-
-            setTimeout(function(){
-
-                loadingScreen.style.display = "none";
-
-                dadScreen.style.display = "flex";
-
-
-                setTimeout(function(){
-
-                    dadScreen.style.display = "none";
-
-                    slideshowScreen.style.display = "flex";
-
-                    startSlideshow();
-
-                },3000);
-
-
-            },1000);
-
-        }
-
-    },1000);
-
-}
-
-
-// ======================================
-// SLIDESHOW
-// ======================================
-
-const slides = [
-
-    {
-        image: "images/photo1.jpg",
-        caption: "A special memory ❤️"
-    },
-
-    {
-        image: "images/photo2.jpg",
-        caption: "Another special memory ❤️"
-    },
-
-    {
-        image: "images/photo3.jpg",
-        caption: "Another memory with Dad ❤️"
-    }
-
-];
-
-
-let currentSlide = 0;
-
-
-// ======================================
-// START SLIDESHOW
-// ======================================
-
-function startSlideshow(){
-
-    showSlide();
-
-}
-
-
-// ======================================
-// SHOW SLIDE
-// ======================================
-
-function showSlide(){
-
-    const image =
-    document.getElementById("slideImage");
-
-    const caption =
-    document.getElementById("slideCaption");
-
-
-    // Fade out
-
-    image.style.opacity = "0";
-
-
-    setTimeout(function(){
-
-        image.src =
-        slides[currentSlide].image;
-
-        caption.textContent =
-        slides[currentSlide].caption;
-
-
-        // Fade in
-
-        image.style.opacity = "1";
-
-    },800);
-
-}
-
-
-// ======================================
-// NEXT
-// ======================================
-
-document.getElementById("nextButton")
-.addEventListener("click", function(){
-
-    currentSlide++;
-
-
-    if(currentSlide >= slides.length){
-
-        currentSlide = slides.length - 1;
-
-        document.getElementById("nextButton")
-        .style.display = "none";
-
-        document.getElementById("continueButton")
-        .style.display = "inline-block";
+        },100);
 
     }
 
 
-    showSlide();
+    function typeMessage(){
 
-});
+        const message =
+        document.getElementById("birthdayMessage");
 
-
-// ======================================
-// PREVIOUS
-// ======================================
-
-document.getElementById("previousButton")
-.addEventListener("click", function(){
-
-    currentSlide--;
+        let i = 0;
 
 
-    if(currentSlide < 0){
+        const timer =
+        setInterval(function(){
 
-        currentSlide = slides.length - 1;
+            message.textContent +=
+            birthdayText.charAt(i);
+
+            i++;
+
+
+            if(i >= birthdayText.length){
+
+                clearInterval(timer);
+
+            }
+
+        },25);
 
     }
 
-
-    showSlide();
-
 });
-
-
-// ======================================
-// CONTINUE TO BIRTHDAY MESSAGE
-// ======================================
-
-const continueButton =
-document.getElementById("continueButton");
-
-
-continueButton.addEventListener("click", function(){
-
-    slideshowScreen.style.display = "none";
-
-    birthdayPage.style.display = "flex";
-
-    startBirthdayMessage();
-
-});
-
-
-// ======================================
-// BIRTHDAY MESSAGE
-// ======================================
-
-const birthdayText =
-`YOUR BIRTHDAY MESSAGE WILL GO HERE.
-
-WE WILL WRITE THIS TOGETHER. ❤️`;
-
-
-function startBirthdayMessage(){
-
-    const title =
-    document.getElementById("birthdayTitle");
-
-    const message =
-    document.getElementById("birthdayMessage");
-
-
-    title.textContent = "";
-
-    message.textContent = "";
-
-
-    const heading =
-    "Happy Birthday Dad! 🎂";
-
-    let i = 0;
-
-
-    const titleTimer =
-    setInterval(function(){
-
-        title.textContent +=
-        heading.charAt(i);
-
-        i++;
-
-
-        if(i >= heading.length){
-
-            clearInterval(titleTimer);
-
-            setTimeout(typeMessage,700);
-
-        }
-
-    },100);
-
-}
-
-
-function typeMessage(){
-
-    const message =
-    document.getElementById("birthdayMessage");
-
-    let i = 0;
-
-
-    const timer =
-    setInterval(function(){
-
-        message.textContent +=
-        birthdayText.charAt(i);
-
-        i++;
-
-
-        if(i >= birthdayText.length){
-
-            clearInterval(timer);
-
-        }
-
-    },25);
-
-}
-    
