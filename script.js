@@ -322,9 +322,15 @@ document.addEventListener("DOMContentLoaded", function(){
     // ======================================
 
     const birthdayText =
-`YOUR BIRTHDAY MESSAGE WILL GO HERE.
+`Happy 45th Birthday Dad! 🫶🏾
 
-WE WILL WRITE THIS TOGETHER. ❤️`;
+Congratulations on reaching another milestone in life! May you continue to grow wiser with age, and may you also become a little more generous and loose with those flex cards as the years go by. 
+
+Thank you so much for always putting up with our bad habits and attitudes from time to time, and for always making sure we are healthy, happy, and well cared for.
+
+We love you, Dad, forever and ever — till pigs fly! 🐷May God bless you with many, many more years so we can make even more memories with you… and so I can give you those 50 grandkids. 
+
+Love you always, Dad! 🫶🏾❤️`;
 
 
     function startBirthdayMessage(){
