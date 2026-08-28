@@ -393,3 +393,18 @@ button:hover{
         0 10px 35px rgba(0, 0, 0, 0.30);
 
 }
+/* ======================================
+   WELCOME PAGE BACKGROUND
+   ====================================== */
+
+#page1 {
+
+    background-image: url("photo5.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
