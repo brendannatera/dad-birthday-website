@@ -386,15 +386,38 @@ WE WILL WRITE THIS TOGETHER. ❤️`;
 
             i++;
 
+if(i >= birthdayText.length){
 
-            if(i >= birthdayText.length){
+    clearInterval(timer);
 
-                clearInterval(timer);
+    setTimeout(function(){
 
-            }
+        psButton.style.display = "inline-block";
+
+    },1000);
+
+}
 
         },25);
 
     }
+
+});
+// ======================================
+// P.S. BUTTON
+// ======================================
+
+const psButton =
+document.getElementById("psButton");
+
+const psCard =
+document.getElementById("psCard");
+
+
+psButton.addEventListener("click", function(){
+
+    psCard.style.display = "block";
+
+    psButton.style.display = "none";
 
 });
