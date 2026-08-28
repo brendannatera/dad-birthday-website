@@ -164,17 +164,17 @@ document.addEventListener("DOMContentLoaded", function(){
     const slides = [
 
         {
-            image: "images/photo1.jpg",
+            image: "photo1.jpg",
             caption: "A special memory ❤️"
         },
 
         {
-            image: "images/photo2.jpg",
+            image: "photo2.jpg",
             caption: "Another special memory ❤️"
         },
 
         {
-            image: "images/photo3.jpg",
+            image: "photo3.jpg",
             caption: "Another memory with Dad ❤️"
         }
 
